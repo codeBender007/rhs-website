@@ -8,10 +8,9 @@ import {
   Target,
   CheckCircle,
 } from "lucide-react";
-
-import articulatedArm from "../../assets/images/articulate_arm.png";
-import hollowFiber from "../../assets/images/hollow_fiber.png";
-import diodeLaser from "../../assets/images/diode.png";
+import articulatedArm from "../../assets/images/articulate-arm.png";
+import hollowFiber from "../../assets/images/hollow-fiber.png";
+import diodeLaser from "../../assets/images/diode-laser.png";
 
 /* TECHNOLOGY DATA */
 
@@ -21,16 +20,13 @@ const technologies = [
     category: "CO₂ LASER",
     title: "Articulated Arm",
     image: articulatedArm,
-
     description:
       "Advanced articulated arm technology ensures exceptional precision, maneuverability and control for a wide range of ENT procedures.",
-
     details: [
       "Electronic scanning systems for extremely precise, safe and reproducible treatments",
       "High precision micromanipulators",
       "Dedicated handpieces with various focal lengths and integrated swivel suction control",
     ],
-
     features: [
       {
         icon: Crosshair,
@@ -45,7 +41,6 @@ const technologies = [
         text: "Dedicated handpieces with various focal lengths and integrated swivel suction control",
       },
     ],
-
     theme: "orange",
   },
 
@@ -54,10 +49,8 @@ const technologies = [
     category: "CO₂ LASER",
     title: "Hollow Fibre",
     image: hollowFiber,
-
     description:
       "Designed to reach the most difficult-to-reach areas with maximum efficiency and minimal invasiveness.",
-
     details: [
       "Ideal for narrow and complex anatomical regions",
       "Optimal energy delivery with hollow fibre technology",
@@ -87,16 +80,13 @@ const technologies = [
     category: "DIODE LASER",
     title: "Diode Laser",
     image: diodeLaser,
-
     description:
       "An additional wavelength (980 nm) to expand the range of available procedures with excellent results.",
-
     details: [
       "Versatile soft tissue treatments",
       "Reduced bleeding and faster healing",
       "Reliable performance with high absorption in target tissue",
     ],
-
     features: [
       {
         icon: Crosshair,
@@ -125,14 +115,12 @@ const themeColors = {
     border: "#ffd8c5",
     glow: "rgba(255,123,50,0.20)",
   },
-
   blue: {
     main: "#28b9df",
     light: "#e8f8fc",
     border: "#c6edf5",
     glow: "rgba(40,185,223,0.20)",
   },
-
   pink: {
     main: "#e95c91",
     light: "#fceaf1",
@@ -150,9 +138,8 @@ const TechnologyCard = ({ technology, index }) => {
 
   return (
     <motion.div
-      className={`group relative flex flex-col overflow-visible rounded-2xl border border-[#e2eaf2] bg-white shadow-[0_5px_25px_rgba(42,75,105,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(42,75,105,0.13)] lg:flex-row ${
-        isReversed ? "lg:flex-row-reverse" : ""
-      }`}
+      className={`group relative flex flex-col overflow-visible rounded-2xl border border-[#e2eaf2] bg-white shadow-[0_5px_25px_rgba(42,75,105,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(42,75,105,0.13)] lg:flex-row ${isReversed ? "lg:flex-row-reverse" : ""
+        }`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
@@ -165,9 +152,8 @@ const TechnologyCard = ({ technology, index }) => {
       {/* IMAGE PANEL */}
 
       <div
-        className={`relative flex min-h-[140px] w-full shrink-0 items-center justify-center overflow-hidden sm:min-h-[150px] sm:w-[220px] lg:w-[240px] ${
-          isReversed ? "lg:border-l" : ""
-        }`}
+        className={`relative flex min-h-[140px] w-full shrink-0 items-center justify-center overflow-hidden sm:min-h-[150px] sm:w-[220px] lg:w-[240px] ${isReversed ? "lg:border-l" : ""
+          }`}
         style={{
           background: `linear-gradient(135deg, ${theme.light} 0%, #ffffff 100%)`,
         }}
@@ -198,7 +184,6 @@ const TechnologyCard = ({ technology, index }) => {
             animationDelay: "0.5s",
           }}
         />
-
         <span
           className="absolute bottom-[25%] right-[22%] h-1 w-1 rounded-full animate-float-y"
           style={{
@@ -240,7 +225,6 @@ const TechnologyCard = ({ technology, index }) => {
 
       <div className="flex flex-1 flex-col justify-center px-5 py-5 sm:px-6 sm:py-6 lg:px-8">
         {/* Category */}
-
         <span
           className="mb-2 inline-block w-fit rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
           style={{
@@ -311,9 +295,8 @@ const TechnologyCard = ({ technology, index }) => {
       {/* FEATURES PANEL */}
 
       <div
-        className={`flex w-full flex-col justify-center gap-2 border-t border-[#e8edf3] px-5 py-4 sm:px-6 lg:w-[280px] lg:border-t-0 ${
-          isReversed ? "lg:border-r" : "lg:border-l"
-        }`}
+        className={`flex w-full flex-col justify-center gap-2 border-t border-[#e8edf3] px-5 py-4 sm:px-6 lg:w-[280px] lg:border-t-0 ${isReversed ? "lg:border-r" : "lg:border-l"
+          }`}
         style={{
           background: `linear-gradient(180deg, ${theme.light}40 0%, #ffffff 100%)`,
         }}

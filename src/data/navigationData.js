@@ -145,9 +145,9 @@ export const URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY = {
   "Disposable Ureterorenoscope": [
     { name: "Disposable HU30M 6.3/6 Fr", path: "/disposable-hu30m-6-3fr" },
     { name: "Disposable HU30M 7.5 Fr", path: "/disposable-hu30m-7-5fr" },
-    { name: "Cystonephroscope", path: "/cystonephroscope" },
+    { name: "Cystonephroscope" },
     { name: "Cystoscope", path: "/disposable-cystoscope" },
-    { name: "Access sheath", path: "/access-sheath" },
-    // { name: "Suction Pump", path: "/suction-pump" },
+    { name: "Access sheath" },
+    { name: "Suction Pump" },
   ],
 };

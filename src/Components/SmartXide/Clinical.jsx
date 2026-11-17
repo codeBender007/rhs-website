@@ -16,10 +16,8 @@ import laryngeal1 from "../../assets/images/clinical/laryngeal_1.jpg";
 import laryngeal2 from "../../assets/images/clinical/laryngeal_2.jpg";
 import laryngeal3 from "../../assets/images/clinical/laryngeal_3.jpg";
 import laryngeal4 from "../../assets/images/clinical/laryngeal_4.jpg";
-
 import stapedotomy1 from "../../assets/images/clinical/stapedotomy_1.jpg";
 import stapedotomy2 from "../../assets/images/clinical/stapedotomy_2.jpg";
-
 import papillomatosis1 from "../../assets/images/clinical/papillomatosis_1.png";
 import papillomatosis2 from "../../assets/images/clinical/papillomatosis_2.png";
 import papillomatosis3 from "../../assets/images/clinical/papillomatosis_3.png";
@@ -288,6 +286,7 @@ const Clinical = () => {
                             >
                               <ChevronRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                             </div>
+
                           </div>
                         )}
                       </React.Fragment>

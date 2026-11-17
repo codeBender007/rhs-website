@@ -3,10 +3,10 @@ import React from "react";
 import humanImage from "../../assets/images/human_bg.png";
 import entIcon from "../../assets/images/entt.png";
 import gastroIcon from "../../assets/images/gastroenterology.png";
-import generalSurgeryIcon from "../../assets/images/entt.png";
-import disectomyIcon from "../../assets/images/entt.png";
-import arthroscopyIcon from "../../assets/images/entt.png";
-import urologyIcon from "../../assets/images/entt.png";
+import generalSurgeryIcon from "../../assets/images/general_surgery_app.png";
+import discectomyIcon from "../../assets/images/discectomy_app.png";
+import arthroscopyIcon from "../../assets/images/arthroscopy_app.png";
+import urologyIcon from "../../assets/images/urology_app.png";
 
 const Applications = () => {
   const applications = [
@@ -35,7 +35,7 @@ const Applications = () => {
       number: "04",
       title: "DISCECTOMY",
       description: "Minimally invasive approach for spine procedures.",
-      icon: disectomyIcon,
+      icon: discectomyIcon,
     },
     {
       number: "05",

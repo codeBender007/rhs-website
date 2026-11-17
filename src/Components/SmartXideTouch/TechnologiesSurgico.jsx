@@ -8,10 +8,9 @@ import {
   Target,
   CheckCircle,
 } from "lucide-react";
-
-import articulatedArm from "../../assets/images/articulate_arm.png";
-import hollowFiber from "../../assets/images/hollow_fiber.png";
-import diodeLaser from "../../assets/images/diode.png";
+import articulatedArm from "../../assets/images/articulate-arm.png";
+import hollowFiber from "../../assets/images/scanner-control.png";
+import diodeLaser from "../../assets/images/scanner-assisted.png";
 
 const technologies = [
   {
@@ -143,9 +142,8 @@ const TechnologyCard = ({ technology, index }) => {
 
   return (
     <motion.div
-      className={`group relative flex flex-col overflow-visible rounded-2xl border border-[#e2eaf2] bg-white shadow-[0_5px_25px_rgba(42,75,105,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(42,75,105,0.13)] lg:flex-row ${
-        isReversed ? "lg:flex-row-reverse" : ""
-      }`}
+      className={`group relative flex flex-col overflow-visible rounded-2xl border border-[#e2eaf2] bg-white shadow-[0_5px_25px_rgba(42,75,105,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(42,75,105,0.13)] lg:flex-row ${isReversed ? "lg:flex-row-reverse" : ""
+        }`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
@@ -158,9 +156,8 @@ const TechnologyCard = ({ technology, index }) => {
       {/* IMAGE PANEL */}
 
       <div
-        className={`relative flex min-h-[140px] w-full shrink-0 items-center justify-center overflow-hidden sm:min-h-[150px] sm:w-[220px] lg:w-[240px] ${
-          isReversed ? "lg:border-l" : ""
-        }`}
+        className={`relative flex min-h-[140px] w-full shrink-0 items-center justify-center overflow-hidden sm:min-h-[150px] sm:w-[220px] lg:w-[240px] ${isReversed ? "lg:border-l" : ""
+          }`}
         style={{
           background: `linear-gradient(135deg, ${theme.light} 0%, #ffffff 100%)`,
         }}
@@ -294,7 +291,6 @@ const TechnologyCard = ({ technology, index }) => {
                   color: theme.main,
                 }}
               />
-
               <p className="text-sm leading-[1.45] text-[#687887]">{detail}</p>
             </motion.div>
           ))}
@@ -304,9 +300,8 @@ const TechnologyCard = ({ technology, index }) => {
       {/* FEATURES PANEL */}
 
       <div
-        className={`flex w-full flex-col justify-center gap-2 border-t border-[#e8edf3] px-5 py-4 sm:px-6 lg:w-[280px] lg:border-t-0 ${
-          isReversed ? "lg:border-r" : "lg:border-l"
-        }`}
+        className={`flex w-full flex-col justify-center gap-2 border-t border-[#e8edf3] px-5 py-4 sm:px-6 lg:w-[280px] lg:border-t-0 ${isReversed ? "lg:border-r" : "lg:border-l"
+          }`}
         style={{
           background: `linear-gradient(180deg, ${theme.light}40 0%, #ffffff 100%)`,
         }}

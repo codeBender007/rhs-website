@@ -25,7 +25,8 @@ import {
   fetchDateAvailability,
 } from "../utils/callBookingService";
 
-const WHATSAPP_NUMBER = "+91 8860086232";
+const WHATSAPP_NUMBER =
+  import.meta.env.VITE_WHATSAPP_NUMBER || "+91 84483 85865";
 
 const initialFormState = {
   title: "",
@@ -106,6 +107,7 @@ const ContactPage = () => {
     if (!formData.callDate) {
       errors.callDate = "Please select a preferred call date.";
       setDateError("Preferred call date is required.");
+
     } else if (!isFutureDate(formData.callDate)) {
       errors.callDate = "Please select a valid future date.";
       setDateError("Please select a future date. Past dates and today cannot be booked.");
@@ -132,6 +134,7 @@ const ContactPage = () => {
       .map((part) => (part || "").trim())
       .filter(Boolean)
       .join(" ");
+
     const formattedCallDate =
       formatDateDisplay(formData.callDate) || formData.callDate;
     const whatsappLines = [
@@ -192,7 +195,7 @@ const ContactPage = () => {
       if (err?.code === "DATE_FULLY_BOOKED") {
         setDateError(
           err.message ||
-            "The selected date has reached its maximum capacity of 50 bookings. Please select another date."
+          "The selected date has reached its maximum capacity of 50 bookings. Please select another date."
         );
       }
       setSubmitStatus({
@@ -217,22 +220,20 @@ const ContactPage = () => {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 60, scale: 0.95 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`Toastify__toast pointer-events-auto relative flex items-start gap-3 overflow-hidden rounded-lg border bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.16)] ${
-                toast.type === "warning"
-                  ? "Toastify__toast--warning border-amber-200"
-                  : toast.type === "success"
+              className={`Toastify__toast pointer-events-auto relative flex items-start gap-3 overflow-hidden rounded-lg border bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.16)] ${toast.type === "warning"
+                ? "Toastify__toast--warning border-amber-200"
+                : toast.type === "success"
                   ? "Toastify__toast--success border-emerald-200"
                   : "Toastify__toast--error border-red-200"
-              }`}
+                }`}
             >
               <div
-                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
-                  toast.type === "warning"
-                    ? "bg-amber-100 text-amber-600"
-                    : toast.type === "success"
+                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${toast.type === "warning"
+                  ? "bg-amber-100 text-amber-600"
+                  : toast.type === "success"
                     ? "bg-emerald-100 text-emerald-600"
                     : "bg-red-100 text-red-600"
-                }`}
+                  }`}
               >
                 {toast.type === "warning" ? (
                   <AlertTriangle size={15} />
@@ -248,8 +249,8 @@ const ContactPage = () => {
                   {toast.type === "warning"
                     ? "Required Fields Missing"
                     : toast.type === "success"
-                    ? "Submitted Successfully"
-                    : "Submission Error"}
+                      ? "Submitted Successfully"
+                      : "Submission Error"}
                 </p>
                 <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600">
                   {toast.message}
@@ -269,13 +270,12 @@ const ContactPage = () => {
                 initial={{ width: "100%" }}
                 animate={{ width: "0%" }}
                 transition={{ duration: 4, ease: "linear" }}
-                className={`Toastify__progress-bar absolute bottom-0 left-0 h-1 ${
-                  toast.type === "warning"
-                    ? "bg-amber-500"
-                    : toast.type === "success"
+                className={`Toastify__progress-bar absolute bottom-0 left-0 h-1 ${toast.type === "warning"
+                  ? "bg-amber-500"
+                  : toast.type === "success"
                     ? "bg-emerald-500"
                     : "bg-red-500"
-                }`}
+                  }`}
               />
             </motion.div>
           )}
@@ -602,9 +602,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.title ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.title ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.title && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -628,9 +627,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.firstName ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.firstName ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.firstName && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -654,9 +652,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.lastName ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.lastName ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.lastName && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -689,9 +686,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.jobTitle ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.jobTitle ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.jobTitle && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -716,9 +712,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.institution ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.institution ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.institution && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -751,9 +746,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.department ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.department ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.department && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -777,9 +771,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.address ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.address ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.address && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -806,9 +799,8 @@ const ContactPage = () => {
                     name="country"
                     value={formData.country}
                     onChange={handleInputChange}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.country ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } bg-white px-3 text-xs text-slate-700 outline-none focus:border-[#0e78f9]`}
+                    className={`h-10 w-full rounded-md border ${formErrors.country ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } bg-white px-3 text-xs text-slate-700 outline-none focus:border-[#0e78f9]`}
                   >
                     <option>Select Country</option>
                     <option>India</option>
@@ -830,9 +822,8 @@ const ContactPage = () => {
                     name="state"
                     value={formData.state}
                     onChange={handleInputChange}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.state ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } bg-white px-3 text-xs text-slate-700 outline-none focus:border-[#0e78f9]`}
+                    className={`h-10 w-full rounded-md border ${formErrors.state ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } bg-white px-3 text-xs text-slate-700 outline-none focus:border-[#0e78f9]`}
                   >
                     <option>Select State</option>
                     <option>Delhi</option>
@@ -860,9 +851,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.city ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.city ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.city && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -886,9 +876,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.zipCode ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.zipCode ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.zipCode && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -912,9 +901,8 @@ const ContactPage = () => {
                   </label>
 
                   <motion.div
-                    className={`flex h-10 overflow-hidden rounded-md border ${
-                      formErrors.mobile ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    }`}
+                    className={`flex h-10 overflow-hidden rounded-md border ${formErrors.mobile ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      }`}
                     whileFocus={{ borderColor: "#0e78f9" }}
                   >
                     <input
@@ -948,9 +936,8 @@ const ContactPage = () => {
                       scale: 1.01,
                       borderColor: "#0e78f9",
                     }}
-                    className={`h-10 w-full rounded-md border ${
-                      formErrors.email ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                    } px-3 text-xs outline-none placeholder:text-slate-400`}
+                    className={`h-10 w-full rounded-md border ${formErrors.email ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                      } px-3 text-xs outline-none placeholder:text-slate-400`}
                   />
                   {formErrors.email && (
                     <span className="mt-1 block text-[10px] text-red-500">
@@ -983,9 +970,8 @@ const ContactPage = () => {
                     scale: 1.005,
                     borderColor: "#0e78f9",
                   }}
-                  className={`w-full resize-none rounded-md border ${
-                    formErrors.requirements ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
-                  } px-3 py-3 text-xs outline-none placeholder:text-slate-400`}
+                  className={`w-full resize-none rounded-md border ${formErrors.requirements ? "border-red-400 ring-1 ring-red-100" : "border-slate-200"
+                    } px-3 py-3 text-xs outline-none placeholder:text-slate-400`}
                 />
                 {formErrors.requirements && (
                   <span className="mt-1 block text-[10px] text-red-500">
@@ -1007,11 +993,10 @@ const ContactPage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`rounded-lg border p-3.5 text-xs ${
-                    submitStatus.type === "success"
-                      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                      : "border-amber-200 bg-amber-50 text-amber-900"
-                  }`}
+                  className={`rounded-lg border p-3.5 text-xs ${submitStatus.type === "success"
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                    : "border-amber-200 bg-amber-50 text-amber-900"
+                    }`}
                 >
                   <div className="flex items-start gap-2.5">
                     {submitStatus.type === "success" ? (
@@ -1056,15 +1041,14 @@ const ContactPage = () => {
                   whileHover={
                     !isSubmitting
                       ? {
-                          scale: 1.04,
-                          boxShadow: "0 8px 20px rgba(14,120,249,0.25)",
-                        }
+                        scale: 1.04,
+                        boxShadow: "0 8px 20px rgba(14,120,249,0.25)",
+                      }
                       : {}
                   }
                   whileTap={!isSubmitting ? { scale: 0.96 } : {}}
-                  className={`flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity ${
-                    isSubmitting ? "cursor-not-allowed opacity-60" : "cursor-pointer"
-                  }`}
+                  className={`flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity ${isSubmitting ? "cursor-not-allowed opacity-60" : "cursor-pointer"
+                    }`}
                 >
                   {isSubmitting ? (
                     <>

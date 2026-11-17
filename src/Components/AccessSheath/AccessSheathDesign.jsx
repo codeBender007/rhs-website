@@ -94,6 +94,8 @@ const AccessSheathDesign = () => {
             </span>
           </motion.h2>
 
+
+
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,9 +116,8 @@ const AccessSheathDesign = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: idx * 0.08 }}
-              className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg ${
-                idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""
-              }`}
+              className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg ${idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""
+                }`}
             >
               <div>
                 {/* Header Row */}
@@ -147,6 +148,7 @@ const AccessSheathDesign = () => {
                   {item.highlight}
                 </span>
               </div>
+
             </motion.div>
           ))}
         </div>

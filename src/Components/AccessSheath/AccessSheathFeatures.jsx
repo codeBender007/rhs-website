@@ -73,7 +73,6 @@ const AccessSheathFeatures = () => {
       hotspot: { x: "81%", y: "55%" }, // Oblique side port
     },
   ];
-
   const current = callouts.find((c) => c.id === activeCallout) || callouts[0];
 
   return (
@@ -103,6 +102,7 @@ const AccessSheathFeatures = () => {
               Precision Suction & Smooth Access
             </span>
           </motion.h2>
+
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -139,18 +139,16 @@ const AccessSheathFeatures = () => {
                   >
                     <span className="relative flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center">
                       <span
-                        className={`absolute inline-flex h-full w-full rounded-full opacity-75 transition-all duration-300 ${
-                          isSelected
-                            ? "animate-ping bg-primary"
-                            : "bg-primary/40 group-hover:bg-primary/70"
-                        }`}
+                        className={`absolute inline-flex h-full w-full rounded-full opacity-75 transition-all duration-300 ${isSelected
+                          ? "animate-ping bg-primary"
+                          : "bg-primary/40 group-hover:bg-primary/70"
+                          }`}
                       />
                       <span
-                        className={`relative inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full text-[10px] font-bold shadow-md transition-all duration-300 ${
-                          isSelected
-                            ? "bg-primary text-white scale-110 ring-4 ring-primary/20"
-                            : "bg-white text-primary border border-primary/50 group-hover:bg-primary group-hover:text-white"
-                        }`}
+                        className={`relative inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full text-[10px] font-bold shadow-md transition-all duration-300 ${isSelected
+                          ? "bg-primary text-white scale-110 ring-4 ring-primary/20"
+                          : "bg-white text-primary border border-primary/50 group-hover:bg-primary group-hover:text-white"
+                          }`}
                       >
                         {item.number}
                       </span>
@@ -212,18 +210,16 @@ const AccessSheathFeatures = () => {
                   <button
                     key={item.id}
                     onClick={() => setActiveCallout(item.id)}
-                    className={`flex items-center gap-2 rounded-xl border p-2.5 text-left transition-all duration-200 ${
-                      isSelected
-                        ? "border-primary bg-primary text-white shadow-sm"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-primary/40 hover:bg-blue-50/50"
-                    }`}
+                    className={`flex items-center gap-2 rounded-xl border p-2.5 text-left transition-all duration-200 ${isSelected
+                      ? "border-primary bg-primary text-white shadow-sm"
+                      : "border-slate-200 bg-white text-slate-700 hover:border-primary/40 hover:bg-blue-50/50"
+                      }`}
                   >
                     <span
-                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold ${
-                        isSelected
-                          ? "bg-white/20 text-white"
-                          : "bg-slate-100 text-slate-600"
-                      }`}
+                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold ${isSelected
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-100 text-slate-600"
+                        }`}
                     >
                       {item.number}
                     </span>

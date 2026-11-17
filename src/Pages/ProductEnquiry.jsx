@@ -15,14 +15,13 @@ import PinDropOutlinedIcon from "@mui/icons-material/PinDropOutlined";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import RestartAltOutlinedIcon from "@mui/icons-material/RestartAltOutlined";
-
 import productEnquiryBanner from "../assets/images/product_enquiry_banner.png";
 import { submitProductEnquiry } from "../services/productEnquiryService";
 import { ENQUIRY_CART_KEY } from "../utils/enquiryStorage";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DEFAULT_WHATSAPP_NUMBER =
-  import.meta.env.VITE_WHATSAPP_NUMBER || "918860086232";
+  import.meta.env.VITE_WHATSAPP_NUMBER || "+91 84483 85865";
 
 const ProductEnquiry = ({
   machineId: propMachineId,
@@ -92,10 +91,10 @@ const ProductEnquiry = ({
         const savedList = savedRaw ? JSON.parse(savedRaw) : [];
         const existingMatch = Array.isArray(savedList)
           ? savedList.find(
-              (item) =>
-                item.name === contextMachine.name ||
-                item.machine_name === contextMachine.machine_name
-            )
+            (item) =>
+              item.name === contextMachine.name ||
+              item.machine_name === contextMachine.machine_name
+          )
           : null;
         const merged = {
           ...contextMachine,
@@ -216,9 +215,7 @@ const ProductEnquiry = ({
 
   const removeProduct = (id) => {
     const updatedProducts = products.filter((product) => product.id !== id);
-
     setProducts(updatedProducts);
-
     localStorage.setItem(ENQUIRY_CART_KEY, JSON.stringify(updatedProducts));
   };
 
@@ -427,22 +424,20 @@ const ProductEnquiry = ({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 60, scale: 0.95 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`Toastify__toast pointer-events-auto relative flex items-start gap-3 overflow-hidden rounded-lg border bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.16)] ${
-                toast.type === "warning"
-                  ? "Toastify__toast--warning border-amber-200"
-                  : toast.type === "success"
+              className={`Toastify__toast pointer-events-auto relative flex items-start gap-3 overflow-hidden rounded-lg border bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.16)] ${toast.type === "warning"
+                ? "Toastify__toast--warning border-amber-200"
+                : toast.type === "success"
                   ? "Toastify__toast--success border-emerald-200"
                   : "Toastify__toast--error border-red-200"
-              }`}
+                }`}
             >
               <div
-                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
-                  toast.type === "warning"
-                    ? "bg-amber-100 text-amber-600"
-                    : toast.type === "success"
+                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${toast.type === "warning"
+                  ? "bg-amber-100 text-amber-600"
+                  : toast.type === "success"
                     ? "bg-emerald-100 text-emerald-600"
                     : "bg-red-100 text-red-600"
-                }`}
+                  }`}
               >
                 {toast.type === "warning" ? (
                   <AlertTriangle size={15} />
@@ -458,8 +453,8 @@ const ProductEnquiry = ({
                   {toast.type === "warning"
                     ? "Required Fields Missing"
                     : toast.type === "success"
-                    ? "Submitted Successfully"
-                    : "Submission Error"}
+                      ? "Submitted Successfully"
+                      : "Submission Error"}
                 </p>
                 <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600">
                   {toast.message}
@@ -479,13 +474,12 @@ const ProductEnquiry = ({
                 initial={{ width: "100%" }}
                 animate={{ width: "0%" }}
                 transition={{ duration: 4, ease: "linear" }}
-                className={`Toastify__progress-bar absolute bottom-0 left-0 h-1 ${
-                  toast.type === "warning"
-                    ? "bg-amber-500"
-                    : toast.type === "success"
+                className={`Toastify__progress-bar absolute bottom-0 left-0 h-1 ${toast.type === "warning"
+                  ? "bg-amber-500"
+                  : toast.type === "success"
                     ? "bg-emerald-500"
                     : "bg-red-500"
-                }`}
+                  }`}
               />
             </motion.div>
           )}
@@ -822,11 +816,10 @@ const ProductEnquiry = ({
                 {submitStatus.message && (
                   <div
                     role="alert"
-                    className={`mb-4 rounded-md border px-4 py-2.5 text-[13px] font-medium ${
-                      submitStatus.type === "error"
-                        ? "border-red-200 bg-red-50 text-red-700"
-                        : "border-emerald-200 bg-emerald-50 text-emerald-700"
-                    }`}
+                    className={`mb-4 rounded-md border px-4 py-2.5 text-[13px] font-medium ${submitStatus.type === "error"
+                      ? "border-red-200 bg-red-50 text-red-700"
+                      : "border-emerald-200 bg-emerald-50 text-emerald-700"
+                      }`}
                   >
                     {submitStatus.message}
                   </div>
@@ -1086,10 +1079,9 @@ const FormInput = ({
             w-full
             rounded-md
             border
-            ${
-              error
-                ? "border-red-400 ring-1 ring-red-100"
-                : "border-[#dce7f1]"
+            ${error
+              ? "border-red-400 ring-1 ring-red-100"
+              : "border-[#dce7f1]"
             }
             bg-white
             pl-9
@@ -1146,10 +1138,9 @@ const FormSelect = ({
             appearance-none
             rounded-md
             border
-            ${
-              error
-                ? "border-red-400 ring-1 ring-red-100"
-                : "border-[#dce7f1]"
+            ${error
+              ? "border-red-400 ring-1 ring-red-100"
+              : "border-[#dce7f1]"
             }
             bg-white
             pl-9
